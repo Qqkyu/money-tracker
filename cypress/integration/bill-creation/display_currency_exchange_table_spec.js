@@ -39,5 +39,6 @@ describe('display currency exchange table', () => {
     cy.get('a[value="EUR"] i.delete.icon').click();
 
     cy.get('div.exchange-rate-table').should('not.exist');
+    cy.wait(1000);
   });
 });
