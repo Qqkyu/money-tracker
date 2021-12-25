@@ -1,12 +1,4 @@
-function deleteAllBills() {
-  cy.visit('http://localhost:3000/settings');
-  cy.get('button')
-    .contains('Delete data')
-    .click();
-  cy.get('button')
-    .contains('Confirm')
-    .click();
-}
+import { deleteAllBills } from '../../utils/bills-utils';
 
 describe('bill creation', () => {
   beforeEach(() => {
@@ -48,6 +40,8 @@ describe('bill creation', () => {
       'contain.text',
       newAccName
     );
+
+    cy.wait(500);
     deleteAllBills();
   });
 
@@ -83,8 +77,6 @@ describe('bill creation', () => {
       .contains('EUR, Euro')
       .click();
 
-    cy.get('div.exchange-rate-table').should('exist');
-
     cy.get('button')
       .contains('Save Account')
       .click();
@@ -97,6 +89,7 @@ describe('bill creation', () => {
       .contains('Finish')
       .click();
 
+    cy.wait(500);
     deleteAllBills();
   });
 
@@ -151,6 +144,7 @@ describe('bill creation', () => {
       .contains('Finish')
       .click();
 
+    cy.wait(500);
     deleteAllBills();
   });
 });
