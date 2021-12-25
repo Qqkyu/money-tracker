@@ -3,8 +3,8 @@ import EntityMap from '../entities/EntityMap';
 import { getAccountsNameMap } from 'selectors/entities/accounts';
 
 
-fdescribe('check if function sorts by name correctly', () => {
-    fit('sorts multiple accounts', () => {
+describe('check if function sorts by name correctly', () => {
+    it('sorts multiple accounts', () => {
         const state = {
             settings: {
               currency: {
@@ -93,7 +93,7 @@ fdescribe('check if function sorts by name correctly', () => {
         expect((accounts).sort(sortByName)).toEqual(expectedAccounts);
     });
 
-    fit('sorts two accounts: first account name > second account name', () => {
+    it('sorts two accounts: first account name > second account name', () => {
         const state = {
             settings: {
               currency: {
@@ -149,7 +149,7 @@ fdescribe('check if function sorts by name correctly', () => {
             expect((accounts).sort(sortByName)).toEqual(expectedAccounts);
     });
 
-    fit('sorts two accounts: first account name < second account name', () => {
+    it('sorts two accounts: first account name < second account name', () => {
         const state = {
             settings: {
               currency: {
@@ -205,7 +205,7 @@ fdescribe('check if function sorts by name correctly', () => {
             expect((accounts).sort(sortByName)).toEqual(expectedAccounts);
     });
 
-    fit('sorts two accounts: first account name == second account name', () => {
+    it('sorts two accounts: first account name == second account name', () => {
         const state = {
             settings: {
               currency: {
@@ -261,7 +261,7 @@ fdescribe('check if function sorts by name correctly', () => {
             expect((accounts).sort(sortByName)).toEqual(expectedAccounts);
     });
 
-    fit('sorts two accounts where one has no name value', () => {
+    it('sorts two accounts where one has no name value', () => {
         const state = {
             settings: {
               currency: {
@@ -318,7 +318,7 @@ fdescribe('check if function sorts by name correctly', () => {
             expect((accounts).sort(sortByName)).toEqual(expectedAccounts);
     });
 
-    fit('sorts two accounts with very long names', () => {
+    it('sorts two accounts with very long names', () => {
         const state = {
             settings: {
               currency: {
@@ -375,7 +375,7 @@ fdescribe('check if function sorts by name correctly', () => {
             expect((accounts).sort(sortByName)).toEqual(expectedAccounts);
     });
 
-    fit('sorts multiple accounts with characters other than letters', () => {
+    it('sorts multiple accounts with characters other than letters', () => {
         const state = {
             settings: {
               currency: {
