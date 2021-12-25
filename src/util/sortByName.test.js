@@ -398,19 +398,19 @@ fdescribe('check if function sorts by name correctly', () => {
                     on_dashboard: true
                 },
                 {
-                    id: 'A12346',
-                    name: 'Z#ed',
-                    group: 'cash',
-                    balance: { JPY: 1000 },
-                    currencies: ['JPY'],
-                    on_dashboard: false
-                },
-                {
                     id: 'A12347',
                     name: 'Z@ed',
                     group: 'bank',
                     balance: { USD: 200, JPY: 100 },
                     currencies: ['USD', 'JPY'],
+                    on_dashboard: false
+                },
+                {
+                    id: 'A12346',
+                    name: 'Z#ed',
+                    group: 'cash',
+                    balance: { JPY: 1000 },
+                    currencies: ['JPY'],
                     on_dashboard: false
                 },
                 {
