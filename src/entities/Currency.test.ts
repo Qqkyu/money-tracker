@@ -37,6 +37,11 @@ it('converts to currency subunit (cents)', () => {
   expect(Currency.numberToCents('9.50', 'USD')).toEqual(950); // $9.50 => 950 cents
   expect(Currency.numberToCents(199, 'JPY')).toEqual(199); // 199 yen has no subunit, 1 yen is the minimum unit
   expect(Currency.numberToCents(1.5, 'KWD')).toEqual(1500); // 1.5 Kuwaiti dinar => 1500 fils
+  expect(Currency.numberToCents(200, 'CLP')).toEqual(200); 
+  expect(Currency.numberToCents(19.89, 'GMD')).toEqual(1989); 
+  expect(Currency.numberToCents(1.487, 'JOD')).toEqual(1487); 
+  expect(Currency.numberToCents(75, 'VND')).toEqual(75); 
+  expect(Currency.numberToCents(7.999, 'BHD')).toEqual(7999); 
 });
 
 it('converts from currency subunit (cents) back to float', () => {
@@ -45,6 +50,11 @@ it('converts from currency subunit (cents) back to float', () => {
   expect(Currency.centsToNumber(100099, 'USD')).toEqual(1000.99);
   expect(Currency.centsToNumber(199, 'JPY')).toEqual(199);
   expect(Currency.centsToNumber(1550, 'KWD')).toEqual(1.55);
+  expect(Currency.centsToNumber(200, 'CLP')).toEqual(200); 
+  expect(Currency.centsToNumber(1989, 'GMD')).toEqual(19.89); 
+  expect(Currency.centsToNumber(1487, 'JOD')).toEqual(1.487); 
+  expect(Currency.centsToNumber(75, 'VND')).toEqual(75); 
+  expect(Currency.centsToNumber(7999, 'BHD')).toEqual(7.999); 
 });
 
 it('converts from currency subunit (cents) to human readable string', () => {
@@ -54,4 +64,9 @@ it('converts from currency subunit (cents) to human readable string', () => {
   expect(Currency.centsToString(100099, 'USD', false)).toEqual('1000.99');
   expect(Currency.centsToString(199, 'JPY')).toEqual('199');
   expect(Currency.centsToString(1550, 'KWD')).toEqual('1.550');
+  expect(Currency.centsToString(200, 'CLP')).toEqual('200'); 
+  expect(Currency.centsToString(1989, 'GMD')).toEqual('19.89'); 
+  expect(Currency.centsToString(1487, 'JOD')).toEqual('1.487'); 
+  expect(Currency.centsToString(75, 'VND')).toEqual('75'); 
+  expect(Currency.centsToString(7999, 'BHD')).toEqual('7.999'); 
 });

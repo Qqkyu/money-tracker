@@ -21,7 +21,11 @@ describe('create new transaction', () => {
         currency: 'USD'
       }
     ]);
+
+    
   });
+
+  
 
   it('increases amount for new income', () => {
     const prev = undefined;
@@ -228,6 +232,146 @@ describe('update transaction', () => {
         accountId: 'A12346',
         amount: 1500,
         currency: 'JPY'
+      }
+    ]);
+  });
+
+  it('removes income, creates income', () =>{
+    const prev = {
+      id: 'T1234',
+      kind: Income,
+      accountId: 'A12345',
+      amount: 100,
+      currency: 'JPY',
+      date: 1505865600000
+    };
+    const next = {
+      id: 'T1235',
+      kind: Income,
+      accountId: 'A12345',
+      amount: 150,
+      currency: 'JPY',
+      date: 1505865600000
+    };
+    expect(getAccountsMutations(prev, next)).toEqual([
+      {
+        accountId: 'A12345',
+        amount: -100,
+        currency: 'JPY'
+      },
+      {
+        accountId: 'A12345',
+        amount: 150,
+        currency: 'JPY'
+      }
+    ]);
+  });
+
+  it('removes transfer, creates income', () =>{
+    const prev = {
+      id: 'T1234',
+      kind: Transfer,
+      accountId: 'A12345',          //100 USD
+      amount: 100,                  
+      currency: 'USD',
+      linkedAccountId: 'A12346',    //-1070 JPY
+      linkedAmount: 1070,
+      linkedCurrency: 'JPY',
+      date: 1505865600000
+    };
+    const next = {
+      id: 'T1235',
+      kind: Income,
+      accountId: 'A12345',        //150 USD
+      amount: 150,
+      currency: 'JPY',
+      date: 1505865600000
+    };
+    expect(getAccountsMutations(prev, next)).toEqual([
+      {
+        accountId: 'A12345',
+        amount: 100,
+        currency: 'USD'
+      },
+      {
+        accountId: 'A12346',
+        amount: -1070,
+        currency: 'JPY'
+      },
+      {
+        accountId: 'A12345',
+        amount: 150,
+        currency: 'JPY'
+      }
+    ]);
+  });
+
+  it('removes transfer, creates expense', () =>{
+    const prev = {
+      id: 'T1234',
+      kind: Transfer,
+      accountId: 'A12345',          //100 USD
+      amount: 100,                  
+      currency: 'USD',
+      linkedAccountId: 'A12346',    //-1070 JPY
+      linkedAmount: 1070,
+      linkedCurrency: 'JPY',
+      date: 1505865600000
+    };
+    const next = {
+      id: 'T1235',
+      kind: Expense,
+      accountId: 'A12345',        //-150 USD
+      amount: -150,
+      currency: 'JPY',
+      date: 1505865600000
+    };
+    expect(getAccountsMutations(prev, next)).toEqual([
+      {
+        accountId: 'A12345',
+        amount: 100,
+        currency: 'USD'
+      },
+      {
+        accountId: 'A12346',
+        amount: -1070,
+        currency: 'JPY'
+      },
+      {
+        accountId: 'A12345',
+        amount: -150,
+        currency: 'JPY'
+      }
+    ]);
+  });
+
+  it('removes expense, creates income', () =>{
+    const prev = {
+      id: 'T1234',
+      kind: Expense,
+      accountId: 'A12345',
+      amount: -2000,
+      currency: 'CHF',
+      date: 1505865600000
+    };
+    const next = {
+      id: 'T1235',
+      kind: Income,
+      accountId: 'A12345',
+      amount: 1550,
+      currency: 'BMD',
+      date: 1505865600000
+    };
+    expect(getAccountsMutations(prev, next)).toEqual([
+      {
+        accountId: 'A12345',
+        amount: 2000,
+        currency: 'CHF'
+      },
+      {
+        accountId: 'A12345',
+        amount: 1550,
+        currency: 'BMD'
       }
     ]);
   });
