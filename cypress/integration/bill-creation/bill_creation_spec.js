@@ -41,7 +41,7 @@ describe('bill creation', () => {
       newAccName
     );
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 
@@ -89,7 +89,7 @@ describe('bill creation', () => {
       .contains('Finish')
       .click();
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 
@@ -144,7 +144,7 @@ describe('bill creation', () => {
       .contains('Finish')
       .click();
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 });

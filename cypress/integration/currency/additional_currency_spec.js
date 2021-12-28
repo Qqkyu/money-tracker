@@ -82,7 +82,7 @@ describe('additional currency', () => {
       .contains('RUB')
       .should('exist');
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 });

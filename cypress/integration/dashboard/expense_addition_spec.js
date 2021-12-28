@@ -76,7 +76,7 @@ describe('expense addition', () => {
     cy.get('div.account-widget-account__balance span').contains('0,00');
     cy.get('div.account-widget-account__balance span').contains('USD');
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 });

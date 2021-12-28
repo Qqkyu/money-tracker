@@ -1,7 +1,7 @@
 import { deleteAllBills } from '../../utils/bills-utils';
 
 describe('income addition', () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit('http://localhost:3000');
   });
 
@@ -60,9 +60,6 @@ describe('income addition', () => {
   });
 
   it('can create new income with provided amount and custom date', () => {
-    cy.visit('http://localhost:3000/transactions');
-    cy.wait(1000);
-
     cy.get('button')
       .contains('New')
       .click();
@@ -89,7 +86,7 @@ describe('income addition', () => {
       .contains('50,00')
       .should('exist');
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 });

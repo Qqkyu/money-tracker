@@ -37,7 +37,7 @@ describe('user bill display', () => {
       .find('.account-widget-account__name')
       .should('have.length', 1);
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 
@@ -67,7 +67,7 @@ describe('user bill display', () => {
       .find('.account-widget-account__name')
       .should('have.length', 2);
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 });

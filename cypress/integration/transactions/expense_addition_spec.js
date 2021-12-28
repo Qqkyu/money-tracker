@@ -1,7 +1,7 @@
 import { deleteAllBills } from '../../utils/bills-utils';
 
 describe('expense addition', () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit('http://localhost:3000');
   });
 
@@ -60,9 +60,6 @@ describe('expense addition', () => {
   });
 
   it('can create new expense with provided amount and custom date', () => {
-    cy.visit('http://localhost:3000/transactions');
-    cy.wait(1000);
-
     cy.get('button')
       .contains('New')
       .click();
@@ -89,7 +86,7 @@ describe('expense addition', () => {
       .contains('50,00')
       .should('exist');
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 });
