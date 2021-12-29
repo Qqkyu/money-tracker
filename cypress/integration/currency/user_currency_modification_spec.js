@@ -82,7 +82,7 @@ describe('user currency modification', () => {
 
     cy.get('div.exchange-rate-table').should('exist');
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 });

@@ -57,7 +57,7 @@ describe('latest transactions editing', () => {
     cy.get('div.account-widget-account__balance span').contains('200,00');
     cy.get('div.account-widget-account__balance span').contains('USD');
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 
@@ -117,7 +117,7 @@ describe('latest transactions editing', () => {
       .contains('New note')
       .should('exist');
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 
@@ -173,7 +173,7 @@ describe('latest transactions editing', () => {
     cy.get('div.account-widget-account__balance span').contains('0,00');
     cy.get('div.account-widget-account__balance span').contains('USD');
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 
@@ -237,7 +237,7 @@ describe('latest transactions editing', () => {
       .contains('1 Jan')
       .should('exist');
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 
@@ -359,7 +359,7 @@ describe('latest transactions editing', () => {
       'div.account-widget-group div:nth-child(3) div.account-widget-account__balance span'
     ).contains('USD');
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 });

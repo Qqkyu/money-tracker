@@ -1,7 +1,7 @@
 import { deleteAllBills } from '../../utils/bills-utils';
 
 describe('expense addition', () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit('http://localhost:3000');
   });
 
@@ -31,6 +31,13 @@ describe('expense addition', () => {
     cy.get('div.account-widget-account__balance span').contains('100,00');
     cy.get('div.account-widget-account__balance span').contains('USD');
 
+    cy.visit('http://localhost:3000/transactions');
+    cy.wait(1000);
+
+    cy.get('button')
+      .contains('New')
+      .click();
+
     cy.get('a')
       .contains('Expense')
       .click();
@@ -43,18 +50,19 @@ describe('expense addition', () => {
       .contains('Add Expense')
       .click();
 
-    cy.get('div.account-widget-account__name').should('exist');
-    cy.get('div.account-widget-account__name a').contains(newAccName);
-
-    cy.get('div.account-widget-account__balance').should('exist');
-    cy.get('div.account-widget-account__balance span').contains('50,00');
-    cy.get('div.account-widget-account__balance span').contains('USD');
+    cy.get('td')
+      .contains('Total expense')
+      .parent()
+      .children('td:nth-child(2)')
+      .children('span')
+      .contains('50,00')
+      .should('exist');
   });
 
   it('can create new expense with provided amount and custom date', () => {
-    cy.get('div.account-widget-account__balance').should('exist');
-    cy.get('div.account-widget-account__balance span').contains('50,00');
-    cy.get('div.account-widget-account__balance span').contains('USD');
+    cy.get('button')
+      .contains('New')
+      .click();
 
     cy.get('a')
       .contains('Expense')
@@ -70,11 +78,13 @@ describe('expense addition', () => {
       .contains('Add Expense')
       .click();
 
-    cy.get('div.account-widget-account__name').should('exist');
-
-    cy.get('div.account-widget-account__balance').should('exist');
-    cy.get('div.account-widget-account__balance span').contains('0,00');
-    cy.get('div.account-widget-account__balance span').contains('USD');
+    cy.get('td')
+      .contains('Total expense')
+      .parent()
+      .children('td:nth-child(2)')
+      .children('span')
+      .contains('50,00')
+      .should('exist');
 
     cy.wait(1000);
     deleteAllBills();

@@ -24,7 +24,7 @@ describe('transfer addition', () => {
       .contains('Transfer')
       .should('not.exist');
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 
@@ -110,7 +110,7 @@ describe('transfer addition', () => {
       'div.account-widget-group div:nth-child(3) div.account-widget-account__balance span'
     ).contains('USD');
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 
@@ -198,7 +198,7 @@ describe('transfer addition', () => {
       'div.account-widget-group div:nth-child(3) div.account-widget-account__balance span'
     ).contains('USD');
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 
@@ -298,7 +298,7 @@ describe('transfer addition', () => {
       'div.account-widget-group div:nth-child(3) div.account-widget-account__balance span'
     ).contains('USD');
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 
@@ -393,7 +393,7 @@ describe('transfer addition', () => {
       'div.account-widget-group div:nth-child(3) div.account-widget-account__balance span'
     ).contains('USD');
 
-    cy.wait(500);
+    cy.wait(1000);
     deleteAllBills();
   });
 });

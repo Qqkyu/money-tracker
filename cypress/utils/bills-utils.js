@@ -6,4 +6,5 @@ export function deleteAllBills() {
   cy.get('button')
     .contains('Confirm')
     .click();
+  cy.wait(1000);
 }
