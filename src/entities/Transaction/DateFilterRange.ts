@@ -24,7 +24,7 @@ function daysFromToday(days: number) {
   return () => subDays(startOfToday(), days);
 }
 
-function firstDayOfThisMonth() {
+export function firstDayOfThisMonth() {
   const date = new Date();
 
   return startOfMonth(date);
