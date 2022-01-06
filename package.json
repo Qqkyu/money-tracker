@@ -55,7 +55,7 @@
     "pretty": "prettier --write 'src/**/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom --watchAll",
     "eject": "react-scripts eject",
     "deploy": "npm run build && cd build && mv index.html 200.html && surge ./ app.moneytracker.cc && surge ./ demo.moneytracker.cc",
     "e2e": "npx cypress open"
