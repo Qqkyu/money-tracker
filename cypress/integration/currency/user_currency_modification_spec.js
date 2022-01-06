@@ -16,6 +16,8 @@ describe('user currency modification', () => {
       .contains('Finish')
       .click();
 
+    cy.wait(1000);
+
     cy.get('.account-widget').should('exist');
     cy.get('.account-widget-account__name a').should(
       'contain.text',
@@ -23,6 +25,7 @@ describe('user currency modification', () => {
     );
 
     cy.visit('http://localhost:3000/settings');
+    cy.wait(1000);
 
     cy.get('label')
       .contains('Base Currency')

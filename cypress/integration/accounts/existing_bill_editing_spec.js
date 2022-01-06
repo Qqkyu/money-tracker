@@ -48,7 +48,7 @@ describe('existing bill editing', () => {
     deleteAllBills();
   });
 
-  it('displays existing bill edition fields', () => {
+  it('can edit existing bill', () => {
     cy.get('.account-widget').should('not.exist');
     const newAccName = 'acc';
     cy.get('.account-form input[placeholder="Account name"]').type(newAccName);

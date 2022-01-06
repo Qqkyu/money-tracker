@@ -19,6 +19,7 @@ describe('transfer addition', () => {
     cy.get('button')
       .contains('Finish')
       .click();
+    cy.wait(1000);
 
     cy.visit('http://localhost:3000/transactions');
     cy.wait(1000);

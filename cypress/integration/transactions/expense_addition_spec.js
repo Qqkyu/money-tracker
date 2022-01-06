@@ -23,6 +23,7 @@ describe('expense addition', () => {
     cy.get('button')
       .contains('Finish')
       .click();
+    cy.wait(1000);
 
     cy.get('div.account-widget-account__name').should('exist');
     cy.get('div.account-widget-account__name a').contains(newAccName);
